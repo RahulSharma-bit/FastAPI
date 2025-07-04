@@ -6,7 +6,6 @@ from pydantic import BaseModel
 from sqlalchemy.orm import Session
 from starlette import status
 from starlette.exceptions import HTTPException
-
 from Database import SessionLocal
 from models import Users
 from passlib.context import CryptContext
