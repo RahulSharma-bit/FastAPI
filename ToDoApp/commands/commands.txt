@@ -1,0 +1,17 @@
+Postgres Command's
+
+to get interaction of postgres on cmd.
+psql -U postgres -d mydatabase
+
+to change the UI format
+
+| Command                  | Description               |
+| ------------------------ | ------------------------- |
+| `\pset format aligned`   | Default table output      |
+| `\pset format unaligned` | Plain output with pipe \` |
+| `\pset format wrapped`   | Wraps long lines          |
+| `\pset format html`      | Outputs HTML table        |
+| `\pset format csv`       | Outputs CSV format        |
+
+to clear the screen in postgres SQL Console.
+\! cls

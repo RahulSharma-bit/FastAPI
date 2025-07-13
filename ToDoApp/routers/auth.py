@@ -31,6 +31,7 @@ class CreateUserRequest(BaseModel):
     last_name: str
     password: str
     role: str
+    phone_number: str
 
 class Token(BaseModel):
     access_token: str
@@ -78,7 +79,7 @@ async def get_current_user(token: Annotated[str, Depends(oauth2_bearer)]):
 
 
 @router.post("/")
-async def   create_user(db :db_dependency, create_user_request: CreateUserRequest):
+async def create_user(db :db_dependency, create_user_request: CreateUserRequest):
     create_user_model = Users(
         email=create_user_request.email,
         username=create_user_request.username,
@@ -86,7 +87,8 @@ async def   create_user(db :db_dependency, create_user_request: CreateUserReques
         lastname= create_user_request.last_name,
         hashed_password=bcrypt_context.hash(create_user_request.password),
         role=create_user_request.role,
-        is_active= True
+        is_active= True,
+        phone_number=create_user_request.phone_number,
     )
     db.add(create_user_model)
     db.commit()
