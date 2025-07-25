@@ -2,7 +2,7 @@ from datetime import datetime, timedelta, timezone
 from typing import Annotated
 from fastapi import APIRouter, Depends
 from jose import jwt, JWTError
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 from starlette import status
 from starlette.exceptions import HTTPException
